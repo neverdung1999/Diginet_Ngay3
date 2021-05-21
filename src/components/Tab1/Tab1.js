@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./tab1.css";
 import data from "../../data";
 import Navbar from "../navbar/Navbar";
-import BackgroundLogo from "../loading/backgroundLogo/BackgroundLogo";
 
 function Tab1(props) {
   const [showTab, setShowTab] = useState(true);
@@ -60,7 +59,11 @@ function Tab1(props) {
       {/* <GlobalLoading /> */}
       <div
         className="header"
-        style={showTabbar ? { marginLeft: "65%", borderRadius: "none" } : null}
+        style={
+          showTabbar
+            ? { marginLeft: "65%", borderRadius: "none", transition: ".5s" }
+            : { marginLeft: "0%", transition: ".5s" }
+        }
       >
         <div className="header_top">
           <div className="header_left">
@@ -77,7 +80,9 @@ function Tab1(props) {
             <Link to="/uiUser" style={{ color: "white" }}>
               <i className="far fa-comment" id="header_right-i"></i>
             </Link>
-            <i className="far fa-bell" id="header_right-i"></i>
+            <Link to="/notification" style={{ color: "white" }}>
+              <i className="far fa-bell" id="header_right-i"></i>
+            </Link>
             <Link to="/uiUser" style={{ color: "white" }}>
               <i className="far fa-user" id="header_right-i"></i>
             </Link>
@@ -90,10 +95,21 @@ function Tab1(props) {
         </div>
       </div>
 
-      <div className="body" style={showTabbar ? { marginLeft: "65%" } : null}>
+      <div
+        className="body"
+        style={
+          showTabbar
+            ? { marginLeft: "65%", transition: ".5s" }
+            : { marginLeft: "0%", transition: ".5s" }
+        }
+      >
         <div
           class="header_bottom"
-          style={showUiSearch ? null : { display: "none" }}
+          style={
+            showUiSearch
+              ? { transform: "translateY(0px)", transition: ".5s" }
+              : { transform: "translateY(-50px)", transition: ".5s" }
+          }
         >
           <div class="header_search">
             <div class="header_search-div">
@@ -120,6 +136,7 @@ function Tab1(props) {
                 >
                   <div
                     className="body_item1"
+                    id={showUiSearch ? "showUiSearchCss" : "hideUiSearchCSs"}
                     style={
                       index % 2 !== 0 ? { flexDirection: "row-reverse" } : null
                     }
@@ -177,7 +194,11 @@ function Tab1(props) {
 
       <div
         className="footer"
-        style={showTabbar ? { marginLeft: "65%", borderRadius: "none" } : null}
+        style={
+          showTabbar
+            ? { marginLeft: "65%", borderRadius: "none", transition: ".5s" }
+            : { marginLeft: "0%", transition: ".5s" }
+        }
       >
         {value.map((item, index) => {
           return (

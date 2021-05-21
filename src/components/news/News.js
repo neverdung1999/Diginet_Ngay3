@@ -20,7 +20,7 @@ function News(props) {
   };
 
   const showUiRead = () => {
-    setOpenUiRead(true);
+    setOpenUiRead(!openUiRead);
   };
 
   const closeUiRead = () => {
@@ -28,7 +28,7 @@ function News(props) {
   };
 
   const showUiShare = () => {
-    setOpenUiShare(true);
+    setOpenUiShare(!openUiShare);
   };
 
   const closeUiShare = () => {
@@ -159,9 +159,23 @@ function News(props) {
 
       {/* <!-- --------------  UI READ -------------- --> */}
 
-      <div className="uiRead" style={openUiRead ? null : { display: "none" }}>
+      <div
+        className="uiRead"
+        style={
+          openUiRead
+            ? { transform: "translateY(0%)" }
+            : { transform: "translateY(100%)", transitionDelay: ".5s" }
+        }
+      >
         <div className="uiRead_top" onClick={() => closeUiRead()}></div>
-        <div className="uiRead_bottom">
+        <div
+          className="uiRead_bottom"
+          style={
+            openUiRead
+              ? { transform: "translateY(0%)", transition: ".5s" }
+              : { transform: "translateY(101%)", transition: ".5s" }
+          }
+        >
           <div className="uiRead_bottom-title">
             <p id="bottom_tile-p">giao diện đọc</p>
           </div>
@@ -226,10 +240,21 @@ function News(props) {
 
       <div
         className="uiShare"
-        style={openUiShare ? null : { display: "none" }}
+        style={
+          openUiShare
+            ? { transform: "translateY(0%)" }
+            : { transform: "translateY(100%)", transitionDelay: ".5s" }
+        }
         onClick={() => closeUiShare()}
       >
-        <div className="uiShare_content">
+        <div
+          className="uiShare_content"
+          style={
+            openUiShare
+              ? { transform: "translateY(0%)", transition: ".5s" }
+              : { transform: "translateY(313%)", transition: ".5s" }
+          }
+        >
           <div className="uiShare_content-top">Chia sẻ bài viết</div>
           <div className="uiShare_content-bottom">
             <i className="fab fa-facebook" id="facebook"></i>

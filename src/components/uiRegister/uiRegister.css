@@ -18,7 +18,6 @@
   padding: 50px 10px;
   background-color: rgb(243 243 249);
   border-radius: 10px;
-  animation: registerForm 0.5s;
 }
 
 .registerForm_title {
@@ -94,12 +93,6 @@
   width: 100%;
   height: 24%;
   justify-content: center;
-}
-
-@keyframes registerForm{
-  0% {
-    transform: translateY(1000px);
-  }
 }
 
 /* ----------------------------- END REGISTER ----------------------------- */

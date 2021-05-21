@@ -13,6 +13,14 @@
   font-weight: bold;
 }
 
+#loginPage_top-iconBack{
+  font-size: 30px;
+  font-weight: 50;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white;
+}
+
 .loginPage {
   position: absolute;
   top: 0;
@@ -68,13 +76,13 @@
 }
 
 .fuction_login:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(255, 153, 0);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
 .fuction_register:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(255, 153, 0);
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }

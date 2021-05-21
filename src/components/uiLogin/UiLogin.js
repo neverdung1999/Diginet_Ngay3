@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./uiLogin.css";
 import GlobalLoading from "../loading/globalLoading/GlobalLoading";
+import UiMessageSuccess from "../uiMessageSuccess/UiMessageSuccess";
 
 function UiLogin(props) {
   const { openUiLogin } = props;
@@ -70,10 +71,15 @@ function UiLogin(props) {
 
   return (
     <div>
+      <UiMessageSuccess />
       <GlobalLoading showLoadingGlobal={showLoadingGlobal} />
       <div
         className="backgroundUser_login"
-        style={openUiLogin ? null : { display: "none" }}
+        style={
+          openUiLogin
+            ? { transform: "translateY(0px)" }
+            : { transform: "translateY(850px)", transitionDelay: ".5s" }
+        }
         onClick={mouseEnterLeave ? () => closeFormLogin() : null}
       >
         <form>
@@ -81,6 +87,11 @@ function UiLogin(props) {
             className="loginForm"
             onMouseEnter={() => onMouseEnterLeave(false)}
             onMouseLeave={() => onMouseEnterLeave(true)}
+            style={
+              openUiLogin
+                ? { transform: "translateY(0px)", transition: ".5s" }
+                : { transform: "translateY(620px)", transition: ".5s" }
+            }
           >
             <div className="loginForm_title">
               <p id="loginForm_title-p">đăng nhập</p>

@@ -43,7 +43,13 @@ function UiUser(props) {
       <GlobalLoading loadingGlobal={loadingGlobal} />;
       <div className="loginPage">
         <div className="loginPage_content">
-          <div className="loginPage_top" onClick={() => goBackHome()}></div>
+          <div className="loginPage_top">
+            <i
+              class="fas fa-arrow-circle-left"
+              id="loginPage_top-iconBack"
+              onClick={() => goBackHome()}
+            ></i>
+          </div>
           <div className="loginPage_bottom">
             <div className="loginPage_bottom-function">
               <div className="fuction_login" onClick={() => openFormLogin()}>

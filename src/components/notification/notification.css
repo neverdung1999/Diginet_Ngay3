@@ -1,0 +1,43 @@
+#backgroundNoti_top-icon{
+    color: #828282;
+    font-size: 20px;
+}
+
+.backgroundNoti{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #ebf0f6;
+}
+
+.backgroundNoti_top{
+    display: flex;
+    width: 100%;
+    height: 8%;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    color: #6e336e;
+    padding: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #dbdbdb;
+    box-shadow: 0px 2px 9px -3px black;
+}
+
+.backgroundNoti_bottom{
+    width: 100%;
+    height: 92%;
+}
+
+.backgroundNoti_top-left{
+    width: 10%;
+    height: 100%;
+    background: green;
+}
+/* 
+.backgroundNoti_top-right{
+    width: 90%;
+    height: 100%;
+    background: pink;
+}  */

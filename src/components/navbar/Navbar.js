@@ -19,8 +19,22 @@ function Index(props) {
   };
 
   return (
-    <div className="navbar" style={showTabbar ? null : { display: "none" }}>
-      <div className="navbar_content">
+    <div
+      className="navbar"
+      style={
+        showTabbar
+          ? { transform: "translateX(0px)" }
+          : { transform: "translateX(-400px)", transitionDelay: ".5s" }
+      }
+    >
+      <div
+        className="navbar_content"
+        style={
+          showTabbar
+            ? { transform: "translateX(0px)", transition: ".5s" }
+            : { transform: "translateX(-260px)", transition: ".5s" }
+        }
+      >
         <div className="navbar_content-top"></div>
         <div className="navbar_content-bottom">
           {value.map((item, index) => {
@@ -46,7 +60,11 @@ function Index(props) {
           })}
         </div>
       </div>
-      <div className="navbar_outsite" onClick={() => closeNavbar()}></div>
+      <div
+        className="navbar_outsite"
+        // style={showTabbar ? { backgroundColor: "rgba(0,0,0,0.5)" } : null}
+        onClick={() => closeNavbar()}
+      ></div>
     </div>
   );
 }

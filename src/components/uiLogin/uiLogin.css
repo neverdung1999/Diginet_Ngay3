@@ -60,7 +60,7 @@
   height: 45%;
   background-color: rgb(243 243 249);
   border-radius: 10px;
-  animation: loginForm 0.5s;
+  /* animation: loginForm 0.5s; */
 }
 
 .loginForm_title {
@@ -127,10 +127,5 @@
   padding: 10px;
 }
 
-@keyframes loginForm {
-  0% {
-    transform: translateY(1000px);
-  }
-}
 
 /* ----------------------------- END LOGIN ----------------------------- */

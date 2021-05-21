@@ -96,18 +96,29 @@ function UiRegister(props) {
     }
   };
 
+  console.log(openUiRegister);
+
   return (
     <div>
       <GlobalLoading showLoadingGlobal={showLoadingGlobal} />;
       <div
         className="backgroundUser_register"
-        style={openUiRegister ? null : { display: "none" }}
+        style={
+          openUiRegister
+            ? { transform: "translateY(0px)" }
+            : { transform: "translateY(850px)", transitionDelay: ".5s" }
+        }
         onClick={mouseEnterLeave ? () => closeFormRegister() : null}
       >
         <div
           className="registerForm"
           onMouseEnter={() => setMouseEnterLeave(false)}
           onMouseLeave={() => setMouseEnterLeave(true)}
+          style={
+            openUiRegister
+              ? { transform: "translateY(0px)", transition: ".5s" }
+              : { transform: "translateY(620px)", transition: ".5s" }
+          }
         >
           <div className="registerForm_title">
             <p id="loginForm_title-p">đăng ký</p>

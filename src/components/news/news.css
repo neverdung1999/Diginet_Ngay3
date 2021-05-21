@@ -179,7 +179,6 @@
   padding: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  animation: uiReadBottom .5s;
 }
 
 .uiRead_bottom-title {
@@ -227,11 +226,6 @@
   color: white;
 }
 
-@keyframes uiReadBottom {
-  0% {
-    transform: translateY(1000px);
-  }
-}
 
 /* ----------------------------------- END UI READ -----------------------------------  */
 
@@ -274,7 +268,6 @@
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  animation: uiShareContent .5s;
 }
 
 .uiShare_content-top {
@@ -298,12 +291,5 @@
   align-items: center;
   justify-content: center;
 }
-
-@keyframes uiShareContent {
-  0% {
-    transform: translateY(1000px);
-  }
-}
-
 
 /* ----------------------------------- END UI SHARE -----------------------------------  */
