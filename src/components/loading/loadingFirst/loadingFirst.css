@@ -1,0 +1,17 @@
+.backgroundFirstLoading{
+    /* position: relative; */
+    width: 1000vh;
+    height: 1000vh;
+    background: linear-gradient(to right, rgb(217, 214, 248), rgb(11, 138, 95));
+}
+
+#backgroundFirstLoading_img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

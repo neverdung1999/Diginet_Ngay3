@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./app.css";
+import BackgroundLogo from "./components/loading/backgroundLogo/BackgroundLogo";
+import LoadingFirst from "./components/loading/loadingFirst/LoadingFirst";
+import ListRouter from "./routers";
 
-function App() {
+function App(props) {
+  const [showLogo, setShowLogo] = useState(true);
+  const [showData, setShowData] = useState(false);
+  const [showLogoContainer, setShowLogoContainer] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLogo(false);
+      setShowLogoContainer(true);
+    }, 2000);
+
+    setTimeout(() => {
+      setShowLogoContainer(false);
+      setShowData(true);
+    }, 3000);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <LoadingFirst showLogo={showLogo} />
+      <Router>
+        {showLogoContainer ? <div className="containerLoadingLogo">
+          <BackgroundLogo />
+        </div> : null}
+        
+        {showData ? <ListRouter /> : null}
+      </Router>
     </div>
   );
 }

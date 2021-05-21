@@ -1,0 +1,86 @@
+/* ----------------------------------- LOGIN PAGE ----------------------------------- */
+
+#loginPage_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#loginPage_bottom-p {
+  text-transform: uppercase;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.loginPage {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  align-items: flex-end;
+  background: rgb(150, 221, 150);
+  background-image: url(../../uploads/Yellow-background.png);
+  background-size: cover;
+  /* animation: loginPage 0.5s; */
+}
+
+.loginPage_content {
+  width: 100%;
+  height: 100%;
+}
+
+.loginPage_top {
+  width: 100%;
+  height: 85%;
+}
+
+.loginPage_bottom {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage_bottom-function {
+  display: flex;
+  width: 90%;
+  height: 45%;
+  border: 1px solid white;
+  border-radius: 50px;
+}
+
+.fuction_login,
+.fuction_register {
+  cursor: pointer;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid white;
+}
+
+.fuction_register {
+  border: none;
+}
+
+.fuction_login:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.fuction_register:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+@keyframes loginPage {
+  0% {
+    transform: translateY(1000px);
+  }
+}

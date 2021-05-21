@@ -1,0 +1,136 @@
+/* ----------------------------- LOGIN ----------------------------- */
+
+#loginForm_title-p {
+  font-size: 18px;
+  text-transform: capitalize;
+  color: rgb(6, 136, 255);
+  font-weight: 700px;
+}
+
+#loginForm_icon {
+  font-size: 20px;
+  color: rgb(33, 149, 255);
+}
+
+#loginForm_input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+#loginForm_button-btnlogin {
+  cursor: pointer;
+  width: 90%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: rgb(6, 136, 255);
+  color: white;
+  font-weight: 500;
+  outline: none;
+}
+
+#LoginForm_input-message {
+  /* display: none; */
+  font-size: 11px;
+  margin: 10px 20px;
+  color: red;
+}
+
+.backgroundUser_login {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.loginForm {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 45%;
+  background-color: rgb(243 243 249);
+  border-radius: 10px;
+  animation: loginForm 0.5s;
+}
+
+.loginForm_title {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+  align-items: flex-end;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.loginForm_input {
+  width: 100%;
+  height: 40%;
+}
+
+.loginForm_button {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 25px;
+}
+
+.loginForm_input-item {
+  display: flex;
+  width: 100%;
+  /* height: 50%; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.input_login {
+  display: flex;
+  width: 90%;
+  height: 50px;
+}
+
+.input_icon {
+  display: flex;
+  width: 15%;
+  height: 100%;
+  background: rgb(221 238 255);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_ip {
+  display: flex;
+  width: 85%;
+  height: 100%;
+  background: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+@keyframes loginForm {
+  0% {
+    transform: translateY(1000px);
+  }
+}
+
+/* ----------------------------- END LOGIN ----------------------------- */
