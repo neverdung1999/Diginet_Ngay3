@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./app.css";
 import BackgroundLogo from "./components/loading/backgroundLogo/BackgroundLogo";
 import LoadingFirst from "./components/loading/loadingFirst/LoadingFirst";
+import UiMessageSuccess from "./components/uiMessageSuccess/UiMessageSuccess";
 import ListRouter from "./routers";
 
 function App(props) {
@@ -24,12 +25,15 @@ function App(props) {
 
   return (
     <div>
+      {/* <UiMessageSuccess /> */}
       <LoadingFirst showLogo={showLogo} />
       <Router>
-        {showLogoContainer ? <div className="containerLoadingLogo">
-          <BackgroundLogo />
-        </div> : null}
-        
+        {showLogoContainer ? (
+          <div className="containerLoadingLogo">
+            <BackgroundLogo />
+          </div>
+        ) : null}
+
         {showData ? <ListRouter /> : null}
       </Router>
     </div>

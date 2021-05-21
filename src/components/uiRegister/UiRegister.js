@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import GlobalLoading from "../loading/globalLoading/GlobalLoading";
 import "./uiRegister.css";
+import UiMessageSuccess from "../uiMessageSuccess/UiMessageSuccess";
 
 function UiRegister(props) {
   const { openUiRegister } = props;
+  const [openUiMessage, setOpenUiMessage] = useState(false);
   const [colorErrorEmail, setColorErrorEmail] = useState(false);
   const [colorErrorPassword, setColorErrorPassword] = useState(false);
   const [colorErrorAgainPassword, setColorErrorAgainPassword] = useState(false);
@@ -17,6 +19,7 @@ function UiRegister(props) {
   const [messagePassword, setMessagePassword] = useState("");
   const [messageAgainPassword, setMessageAgainPassword] = useState("");
   const [showLoadingGlobal, setShowLoadingGlobal] = useState(false);
+
 
   const changeData = (e) => {
     let name = e.target.name;
@@ -67,6 +70,10 @@ function UiRegister(props) {
     props.closeFormRegister(false);
   };
 
+  const onCloseUiMessage = () => {
+    setOpenUiMessage(false);
+  };
+
   const submitForm = () => {
     if (valueInputName === "") {
       setMessageName("Họ tên không được bỏ trống !");
@@ -92,14 +99,17 @@ function UiRegister(props) {
       setShowLoadingGlobal(true);
       setTimeout(() => {
         setShowLoadingGlobal(false);
+        setOpenUiMessage(true);
       }, 2000);
     }
   };
 
-  console.log(openUiRegister);
-
   return (
     <div>
+      <UiMessageSuccess
+        openUiMessage={openUiMessage}
+        onCloseUiMessage={onCloseUiMessage}
+      />
       <GlobalLoading showLoadingGlobal={showLoadingGlobal} />;
       <div
         className="backgroundUser_register"
