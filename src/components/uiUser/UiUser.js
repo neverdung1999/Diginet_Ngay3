@@ -35,7 +35,7 @@ function UiUser(props) {
   };
 
   const goBackHome = () => {
-    history.goBack();
+    history.push("/");
   };
 
   return (

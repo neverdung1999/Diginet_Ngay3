@@ -29,7 +29,7 @@
   border-radius: 10px;
   align-items: flex-end;
   background: rgb(150, 221, 150);
-  background-image: url(../../uploads/Yellow-background.png);
+  background-image: url("../../uploads/Yellow-background.png");
   background-size: cover;
   /* animation: loginPage 0.5s; */
 }

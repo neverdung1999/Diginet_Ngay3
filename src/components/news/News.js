@@ -16,7 +16,7 @@ function News(props) {
   const [colorDarkLight, setColorDarkLight] = useState(false);
 
   const goBackHome = () => {
-    history.goBack();
+    history.push("/");
   };
 
   const showUiRead = () => {
