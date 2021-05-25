@@ -2,9 +2,10 @@ import React from "react";
 import UiUser from "../../components/uiUser/UiUser";
 
 function UiUserPage(props) {
+  const { history } = props;
   return (
     <div>
-      <UiUser />
+      <UiUser history={history} />
     </div>
   );
 }

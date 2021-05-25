@@ -18,30 +18,32 @@ function Home(props) {
   const [showContentTab, setShowContentTab] = useState(null);
   const [timeBackground, setTimeBackground] = useState(true);
 
-  useEffect(async () => {
-    await axios({
-      method: "get",
-      url: "https://api.appfast.io/v3?operationName=getContent&variables=%7B%22limit%22%3A20%2C%22start%22%3A0%2C%22where%22%3A%7B%22tag%22%3A%5B%22609e2238bbca91001079bbc6%22%5D%2C%22type%22%3A%5B%22photo%22%2C%22video%22%2C%22news%22%2C%22event%22%2C%22link%22%2C%22pdf%22%2C%22mp4%22%5D%2C%22projectId%22%3A%22604f2564831b6f001062735a%22%2C%22key%22%3A%22POST_CONTENT_crtooduucr%22%2C%22active%22%3Atrue%2C%22_cache%22%3Afalse%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22be56086ed0eff4528148a4e27b56e7b57df1367bdbb2e7cfe5a024c400189e6c%22%7D%7D",
-      data: null,
-    })
-      .then((res) => {
-        setTimeBackground(false);
-        setData(res.data.data.contentFilter);
-        if (id) {
-          setShowContentTab(id);
-        } else {
-          setShowContentTab(1);
-        }
-        value.forEach((e, index) => {
-          if (e.id === id) {
-            setShowTitleTab(e.name);
-          }
-        });
+  useEffect(() => {
+    async function myCallApi(){
+      await axios({
+        method: "get",
+        url: "https://api.appfast.io/v3?operationName=getContent&variables=%7B%22limit%22%3A20%2C%22start%22%3A0%2C%22where%22%3A%7B%22tag%22%3A%5B%22609e2238bbca91001079bbc6%22%5D%2C%22type%22%3A%5B%22photo%22%2C%22video%22%2C%22news%22%2C%22event%22%2C%22link%22%2C%22pdf%22%2C%22mp4%22%5D%2C%22projectId%22%3A%22604f2564831b6f001062735a%22%2C%22key%22%3A%22POST_CONTENT_crtooduucr%22%2C%22active%22%3Atrue%2C%22_cache%22%3Afalse%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22be56086ed0eff4528148a4e27b56e7b57df1367bdbb2e7cfe5a024c400189e6c%22%7D%7D",
+        data: null,
       })
-      .catch((err) => console.log(err));
+        .then((res) => {
+          setTimeBackground(false);
+          setData(res.data.data.contentFilter);
+          if (id) {
+            setShowContentTab(id);
+          } else {
+            setShowContentTab(1);
+          }
+          value.forEach((e, index) => {
+            if (e.id === id) {
+              setShowTitleTab(e.name);
+            }
+          });
+        })
+        .catch((err) => console.log(err));
+    };
+    
+    myCallApi();
   }, []);
-
-  console.log(data);
 
   const value = [
     {
@@ -162,13 +164,25 @@ function Home(props) {
               </div>
             </div>
             <div className="header-right">
-              <Link to="/uiUser" style={{ color: "white" }}>
+              <Link
+                to={{ pathname: "/uiUser", state: { id: showContentTab } }}
+                style={{ color: "white" }}
+              >
                 <i className="far fa-comment" id="header_right-i"></i>
               </Link>
-              <Link to="/notification" style={{ color: "white" }}>
+              <Link
+                to={{
+                  pathname: "/notification",
+                  state: { id: showContentTab },
+                }}
+                style={{ color: "white" }}
+              >
                 <i className="far fa-bell" id="header_right-i"></i>
               </Link>
-              <Link to="/uiUser" style={{ color: "white" }}>
+              <Link
+                to={{ pathname: "/uiUser", state: { id: showContentTab } }}
+                style={{ color: "white" }}
+              >
                 <i className="far fa-user" id="header_right-i"></i>
               </Link>
               <i

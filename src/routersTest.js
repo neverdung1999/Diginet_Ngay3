@@ -2,7 +2,6 @@ import React from "react";
 import HomePage from "./pages/homePage/HomePage";
 import UiUserPage from "./pages/uiUserPage/UiUserPage";
 import NotificationPage from "./pages/notificationPage/NotificationPage";
-import ScreenPage from "./pages/screenPage/ScreenPage";
 import NewsPage from "./pages/newsPage/NewsPage";
 
 const routers = [
@@ -19,17 +18,12 @@ const routers = [
   {
     path: "/uiUser",
     exact: true,
-    main: () => <UiUserPage />,
+    main: ({ history }) => <UiUserPage history={history} />,
   },
   {
     path: "/notification",
     exact: true,
-    main: () => <NotificationPage />,
-  },
-  {
-    path: "/screen/:id",
-    exact: false,
-    main: ({ history }) => <ScreenPage history={history} />,
+    main: ({ history }) => <NotificationPage history={history}  />,
   },
 ];
 

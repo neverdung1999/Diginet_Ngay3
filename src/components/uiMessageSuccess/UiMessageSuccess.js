@@ -3,7 +3,6 @@ import "./uiMessageSuccess.css";
 
 function UiMessageSuccess(props) {
   const { openUiMessage } = props;
-  const [message, setMessage] = useState("");
   const [status, setStatus] = useState(true);
 
   const onCloseMessage = () => {

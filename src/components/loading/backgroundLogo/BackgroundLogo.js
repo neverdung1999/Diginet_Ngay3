@@ -10,7 +10,7 @@ function BackgroundLogo(props) {
       style={timeBackground ? null : { display: "none" }}
     >
       <div className="backgroundLogo">
-        <img src={logo} id="backgroundLogo_img" />
+        <img src={logo} id="backgroundLogo_img" alt="img" />
       </div>
     </div>
   );

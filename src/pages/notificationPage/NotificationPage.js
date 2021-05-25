@@ -2,9 +2,10 @@ import React from "react";
 import Notification from "../../components/notification/Notification";
 
 function NotificationPage(props) {
+  const { history } = props;
   return (
     <div>
-      <Notification />
+      <Notification history={history} />
     </div>
   );
 }

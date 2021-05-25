@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./tab2.css";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
 function Tab2(props) {
   const { showUiSearch, showTabbar, data, showContentTab } = props;
-  const [dataFirst, setDataFirst] = useState(data[0]);
-
+  const dataFirst = data[0];
+  
   const setRmDataFirst = data.filter((item) => item._id !== dataFirst._id);
 
   return (
@@ -56,9 +56,13 @@ function Tab2(props) {
           style={{ textDecoration: "none", color: "black" }}
         >
           <div className="tab2_main-img">
-            <img src={dataFirst.extra_info.image} id="tab2_main-img" />
+            <img src={dataFirst?.extra_info?.image} id="tab2_main-img" alt="img"/>
             <div className="tab2_main-title">
-              <div className="main_title-top">{dataFirst.extra_info.title}</div>
+              <div className="main_title-top">
+                
+                {dataFirst?.extra_info?.title}
+              
+              </div>
               <div className="main_title-bottom">
                 <p id="main_title-bottom">HOME</p>
                 <p id="main_title-bottom">
@@ -90,14 +94,15 @@ function Tab2(props) {
                 <div className="item_properties-on">
                   <div className="item_properties-left">
                     <img
-                      src={item.extra_info.image}
+                      src={item?.extra_info?.image}
                       id="item_properties-left"
+                      alt="img"
                     />
                   </div>
                   <div className="item_properties-right">
                     <div className="properties_right-top">HOME</div>
                     <div className="properties_right-body">
-                      {item.extra_info.title}
+                      {item?.extra_info?.title}
                     </div>
                     <div className="properties_right-bottom">
                       {moment(`${item.updatedAt}`).format("L")}

@@ -2,20 +2,17 @@ import React, { useState, useEffect } from "react";
 import UiLogin from "../uiLogin/UiLogin";
 import UiRegister from "../uiRegister/UiRegister";
 import "./uiUser.css";
-import { useHistory } from "react-router-dom";
-import GlobalLoading from "../loading/globalLoading/GlobalLoading";
 
 function UiUser(props) {
-  const history = useHistory();
+  const { history } = props;
   const [openUiLogin, setOpenUiLogin] = useState(false);
   const [openUiRegister, setOpenUiRegister] = useState(false);
-  const [loadingGlobal, setLoaddingGlobal] = useState(false);
+  const [id, setId] = useState(null);
 
   useEffect(() => {
-    setLoaddingGlobal(true);
-    setTimeout(() => {
-      setLoaddingGlobal(false);
-    }, 500);
+    if (history.location.state !== undefined) {
+      setId(history.location.state.id);
+    }
   }, []);
 
   const openFormLogin = () => {
@@ -35,12 +32,13 @@ function UiUser(props) {
   };
 
   const goBackHome = () => {
-    history.push("/");
+    history.location.state !== undefined
+      ? history.push({ pathname: "/", id: id })
+      : history.push("/");
   };
 
   return (
     <div className="container">
-      <GlobalLoading loadingGlobal={loadingGlobal} />;
       <div className="loginPage">
         <div className="loginPage_content">
           <div className="loginPage_top">

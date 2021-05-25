@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./tab4.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -63,14 +63,18 @@ function Tab3(props) {
                       <p id="top_top-category">HOME</p>
                     </div>
                     <div className="top_top-time">
-                      {moment(item.updatedAt).format("DD/MM/YYYY")}
+                      {moment(item.updatedAt).format("DD [Thg] MM YYYY, HH:mm")}
                     </div>
                   </div>
                   <div className="item_top-body">{item.title}</div>
                   <div className="item_top-bottom">{item.description}</div>
                 </div>
                 <div className="content_item-bottom">
-                  <img src={item?.extra_info?.image} id="content_item-bottom" />
+                  <img
+                    src={item?.extra_info?.image}
+                    id="content_item-bottom"
+                    alt="img"
+                  />
                 </div>
               </div>
             </Link>

@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./news.css";
 import parse from "html-react-parser";
+import moment from "moment";
 
 function News(props) {
   const { state, history } = props;
   const showContentTab = state.id;
   const dataFirst = state.dataFirst;
   const item = state.item;
-  // const dataFirst = [];
   const data = [];
-  // dataFirst.push(state.dataFirst);
-  // data.push(state.item);
-  // const item = data.filter((item) => item._id === state._id);
-  // const itemMain = item[0];
   const [openUiRead, setOpenUiRead] = useState(false);
   const [openUiShare, setOpenUiShare] = useState(false);
   const [sizeContent, setSizeContent] = useState(18);
@@ -21,8 +17,8 @@ function News(props) {
 
   if (dataFirst) {
     data.push(dataFirst);
-  } 
-  if(item) {
+  }
+  if (item) {
     data.push(item);
   }
 
@@ -108,7 +104,7 @@ function News(props) {
         <div className="bodyNews">
           <div className="bodyNews_img">
             <img
-              src={data[0].extra_info.lead_image_url}
+              src={data[0]?.extra_info?.lead_image_url}
               alt=""
               id="bodyNews_img"
             />
@@ -132,7 +128,7 @@ function News(props) {
                     : { fontSize: sizeContentH1, color: "black" }
                 }
               >
-                {data[0].extra_info.title}
+                {data[0]?.extra_info?.title}
               </h1>
               <div
                 className="content_description"
@@ -150,7 +146,7 @@ function News(props) {
               >
                 <div className="content_description-category">Home</div>
                 <div className="content_description-time">
-                  {data[0].updatedAt}
+                  {moment(data[0].updatedAt).format("DD [Thg] MM YYYY, HH:mm")}
                 </div>
               </div>
               <div

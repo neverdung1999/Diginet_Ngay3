@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./notification.css";
-import { useHistory } from "react-router-dom";
 
 function Notification(props) {
-  const history = useHistory();
+  const { history } = props;
+  const [id, setId] = useState(null);
+
+  useEffect(() => {
+    if (history.location.state !== undefined) {
+      setId(history.location.state.id);
+    }
+  });
+
   const closeFormNoti = () => {
-    history.goBack();
+    {
+      history.location.state !== undefined
+        ? history.push({ pathname: "/", id: id })
+        : history.push("/");
+    }
   };
 
   return (

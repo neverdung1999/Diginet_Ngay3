@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./tab3.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -59,7 +59,11 @@ function Tab3(props) {
                 : { transform: "translateY(-50px)", transition: ".5s" }
             }
           >
-            <img src={dataFirst?.extra_info?.image} id="tab3_main-img" />
+            <img
+              src={dataFirst?.extra_info?.image}
+              id="tab3_main-img"
+              alt="img"
+            />
             <div className="main_img-bottom"></div>
             <div className="main_img-top">
               <div className="img_top-top">{dataFirst?.extra_info?.title}</div>
@@ -73,6 +77,7 @@ function Tab3(props) {
                 <img
                   src="https://kenh14cdn.com/channel-icon/kenh14-152.png"
                   id="img_top-logo"
+                  alt="img"
                 />
               </div>
             </div>
@@ -102,10 +107,16 @@ function Tab3(props) {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <div className="item_left-top">
-                  <img src={item.extra_info.image} id="left_top-img" />
+                  <img
+                    src={item?.extra_info?.image}
+                    id="left_top-img"
+                    alt="img"
+                  />
                 </div>
                 <div className="item_left-bottom">
-                  <div className="left_bottom-top">{item.extra_info.title}</div>
+                  <div className="left_bottom-top">
+                    {item?.extra_info?.title}
+                  </div>
                   <div className="left_bottom-bottom">{item.description}</div>
                 </div>
                 <div className="item_left-category">Home</div>
