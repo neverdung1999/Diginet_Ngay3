@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./app.css";
 import BackgroundLogo from "./components/loading/backgroundLogo/BackgroundLogo";
 import LoadingFirst from "./components/loading/loadingFirst/LoadingFirst";
-import UiMessageSuccess from "./components/uiMessageSuccess/UiMessageSuccess";
-import ListRouter from "./routers";
+import routers from "./routersTest";
 
 function App(props) {
   const [showLogo, setShowLogo] = useState(true);
@@ -15,17 +14,33 @@ function App(props) {
     setTimeout(() => {
       setShowLogo(false);
       setShowLogoContainer(true);
-    }, 2000);
+    }, 500);
 
     setTimeout(() => {
       setShowLogoContainer(false);
       setShowData(true);
-    }, 3000);
+    }, 500);
   }, []);
+
+  const showRouters = (routers) => {
+    let result = null;
+    if (routers.length > 0) {
+      result = routers.map((item, index) => {
+        return (
+          <Route
+            key={index}
+            path={item.path}
+            exact={item.exact}
+            component={item.main}
+          />
+        );
+      });
+    }
+    return <Switch>{result}</Switch>;
+  };
 
   return (
     <div>
-      {/* <UiMessageSuccess /> */}
       <LoadingFirst showLogo={showLogo} />
       <Router>
         {showLogoContainer ? (
@@ -33,8 +48,7 @@ function App(props) {
             <BackgroundLogo />
           </div>
         ) : null}
-
-        {showData ? <ListRouter /> : null}
+        {showData ? showRouters(routers) : null}
       </Router>
     </div>
   );

@@ -2,20 +2,14 @@ import React from "react";
 import "./navbar.css";
 
 function Index(props) {
-  const { showTabbar, value, showTab } = props;
+  const { showTabbar, value, showContentTab } = props;
 
   const closeNavbar = () => {
     props.closeNavbar(false);
   };
 
-  const activeTabbar = (index) => {
-    if (index === 0) {
-      props.setShowTab1(true);
-      props.setTitle1("TAB1");
-    } else {
-      props.setShowTab1(false);
-      props.setTitle1("TAB2");
-    }
+  const activeTabbar = (id, name) => {
+    props.setIdTabbar(id, name);
   };
 
   return (
@@ -42,13 +36,9 @@ function Index(props) {
               <div
                 key={index}
                 className="content_bottom-item"
-                onClick={() => activeTabbar(index)}
+                onClick={() => activeTabbar(item.id, item.name)}
                 style={
-                  index === 0
-                    ? showTab
-                      ? { backgroundColor: "rgb(141, 200, 255)" }
-                      : null
-                    : !showTab
+                  item.id === showContentTab
                     ? { backgroundColor: "rgb(141, 200, 255)" }
                     : null
                 }
@@ -60,11 +50,7 @@ function Index(props) {
           })}
         </div>
       </div>
-      <div
-        className="navbar_outsite"
-        // style={showTabbar ? { backgroundColor: "rgba(0,0,0,0.5)" } : null}
-        onClick={() => closeNavbar()}
-      ></div>
+      <div className="navbar_outsite" onClick={() => closeNavbar()}></div>
     </div>
   );
 }

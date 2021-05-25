@@ -1,4 +1,3 @@
-
 /* ----------------------------------- BODY  -----------------------------------*/
 
 /* ----------------------------------- BODY ITEM1  -----------------------------------*/
@@ -12,12 +11,12 @@
 
 #showUiSearchCss {
   transform: translateY(0px);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 #hideUiSearchCSs {
   transform: translateY(-50px);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .body_item1 {
@@ -49,32 +48,20 @@
   align-items: center;
 }
 
-.item1_content-title1 {
+.item1_content-title {
   width: 100%;
-  height: 53px;
-  padding: 2px 15px;
-  overflow: hidden; 
-  font-weight: bold;
-  font-size: 15px;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-.item1_content-description1 {
-  width: 100%;
-  height: 30%;
+  height: 40%;
   padding: 2px 15px;
   overflow: hidden;
-  text-overflow: -o-ellipsis-lastline;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  font-size: 14px;
-  -webkit-box-orient: vertical;
-  margin-top: 15px;
-  }
+}
 
+.item1_content-description {
+  width: 100%;
+  height: 35%;
+  border-bottom-right-radius: 10px;
+  padding: 0px 15px;
+  overflow: hidden;
+}
 
 /* ----------------------------------- END BODY ITEM1  -----------------------------------*/
 
@@ -112,6 +99,11 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;
+}
+
+#description_p {
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .header_left {
@@ -239,3 +231,141 @@
 
 /* ----------------------------------- END SEARCH -----------------------------------  */
 
+/* ----------------------------------- BODY ----------------------------------- */
+
+/* ----------------------------------- BODY TOP ----------------------------------- */
+
+
+#tab2_main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+#main_title-bottom{
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.tab2_main {
+  width: 100%;
+  height: 230px;
+  padding: 10px;
+}
+
+.tab2_main-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.tab2_main-title{
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  height: 120px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0))
+}
+
+.main_title-top{
+  display: flex;
+  width: 100%;
+  height: 62%;
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  align-items: flex-end;
+}
+
+.main_title-bottom{
+  display: flex;
+  width: 100%;
+  height: 38%;
+  padding: 5px 10px;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+}
+
+/* ----------------------------------- END BODY TOP ----------------------------------- */
+
+/* ----------------------------------- BODY BOTTOM ----------------------------------- */
+
+#item_properties-left{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.tab2_item{
+  width: 100%;
+  height: 140px;
+  padding: 10px;
+}
+
+.tab2_item-properties{
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 5px 15px -5px;
+}
+
+.item_properties-on{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.item_properties-left{
+  width: 40%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.item_properties-right{
+  width: 60%;
+  height: 100%;
+  padding: 0px 5px;
+}
+
+.properties_right-top, .properties_right-bottom{
+  display: flex;
+  width: 100%;
+  height: 20%;
+  color: #dbdbdb;
+  font-size: 12px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.properties_right-body{
+  width: 100%;
+  height: 60%;
+  font-weight: bold;
+  font-size: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
+/* ----------------------------------- END BODY BOTTOM ----------------------------------- */
+
+
+/* ----------------------------------- END BODY ----------------------------------- */

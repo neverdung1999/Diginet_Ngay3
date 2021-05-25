@@ -45,7 +45,7 @@ function UiUser(props) {
         <div className="loginPage_content">
           <div className="loginPage_top">
             <i
-              class="fas fa-arrow-circle-left"
+              className="fas fa-arrow-circle-left"
               id="loginPage_top-iconBack"
               onClick={() => goBackHome()}
             ></i>

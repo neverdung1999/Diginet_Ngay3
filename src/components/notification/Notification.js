@@ -13,7 +13,7 @@ function Notification(props) {
       <div className="backgroundNoti">
         <div className="backgroundNoti_top">
           <i
-            class="fas fa-arrow-left"
+            className="fas fa-arrow-left"
             id="backgroundNoti_top-icon"
             onClick={() => closeFormNoti()}
           ></i>

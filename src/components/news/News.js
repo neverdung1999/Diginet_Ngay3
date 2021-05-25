@@ -1,22 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./news.css";
-import data from "../../data";
 import parse from "html-react-parser";
-import { useHistory } from "react-router-dom";
 
 function News(props) {
-  const { id } = props.match.params;
-  const item = data.filter((item) => item._id === id);
-  const itemMain = item[0];
-  const history = useHistory();
+  const { state, history } = props;
+  const showContentTab = state.id;
+  const dataFirst = state.dataFirst;
+  const item = state.item;
+  // const dataFirst = [];
+  const data = [];
+  // dataFirst.push(state.dataFirst);
+  // data.push(state.item);
+  // const item = data.filter((item) => item._id === state._id);
+  // const itemMain = item[0];
   const [openUiRead, setOpenUiRead] = useState(false);
   const [openUiShare, setOpenUiShare] = useState(false);
   const [sizeContent, setSizeContent] = useState(18);
   const [sizeContentH1, setSizeContentH1] = useState(30);
   const [colorDarkLight, setColorDarkLight] = useState(false);
 
+  if (dataFirst) {
+    data.push(dataFirst);
+  } 
+  if(item) {
+    data.push(item);
+  }
+
   const goBackHome = () => {
-    history.push("/");
+    history.push({ pathname: "/", id: showContentTab });
   };
 
   const showUiRead = () => {
@@ -97,7 +108,7 @@ function News(props) {
         <div className="bodyNews">
           <div className="bodyNews_img">
             <img
-              src={itemMain.extra_info.lead_image_url}
+              src={data[0].extra_info.lead_image_url}
               alt=""
               id="bodyNews_img"
             />
@@ -121,7 +132,7 @@ function News(props) {
                     : { fontSize: sizeContentH1, color: "black" }
                 }
               >
-                {itemMain.extra_info.title}
+                {data[0].extra_info.title}
               </h1>
               <div
                 className="content_description"
@@ -139,7 +150,7 @@ function News(props) {
               >
                 <div className="content_description-category">Home</div>
                 <div className="content_description-time">
-                  {itemMain.updatedAt}
+                  {data[0].updatedAt}
                 </div>
               </div>
               <div
@@ -150,7 +161,7 @@ function News(props) {
                     : { fontSize: sizeContent, color: "black" }
                 }
               >
-                {parse(itemMain.extra_info.content)}
+                {parse(data[0].extra_info.content)}
               </div>
             </div>
           </div>
