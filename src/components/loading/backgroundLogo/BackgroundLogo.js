@@ -3,7 +3,7 @@ import logo from "../../../uploads/logoDropbox.png";
 import "./backgroundLogo.css";
 
 function BackgroundLogo(props) {
-  const { timeBackground } = props;
+  const { timeBackground } = props;;;
   return (
     <div
       className="containerLoadingLogo"
