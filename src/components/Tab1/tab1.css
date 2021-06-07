@@ -51,7 +51,7 @@
 
 .item1_content-title1 {
   width: 100%;
-  height: 53px;
+  height: 60px;
   padding: 2px 15px;
   overflow: hidden; 
   font-weight: bold;
@@ -64,7 +64,7 @@
 
 .item1_content-description1 {
   width: 100%;
-  height: 30%;
+  height: 27%;
   padding: 2px 15px;
   overflow: hidden;
   text-overflow: -o-ellipsis-lastline;
@@ -143,47 +143,6 @@
   width: 100%;
   display: flex;
 }
-
-/* -----------------------------------  FOOTER  -----------------------------------*/
-
-#footer_icon {
-  font-size: 20px;
-  color: rgb(189, 189, 189);
-}
-
-#footer_title {
-  font-size: 13px;
-  color: rgb(189, 189, 189);
-  text-transform: uppercase;
-}
-
-.footer_tab1 {
-  width: 50%;
-  height: 100%;
-}
-
-.footer_tab2 {
-  width: 50%;
-  height: 100%;
-}
-
-.footer_icon {
-  display: flex;
-  width: 100%;
-  height: 50%;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.footer_title {
-  display: flex;
-  width: 100%;
-  height: 50%;
-  justify-content: center;
-  padding-top: 5px;
-}
-
-/* ----------------------------------- END FOOTER  -----------------------------------*/
 
 /* ----------------------------------- SEARCH -----------------------------------  */
 

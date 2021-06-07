@@ -18,6 +18,7 @@ function News(props) {
     showContentTab: null,
     dataFirst: null,
     item: null,
+    isActiveTab: null,
   });
 
   useEffect(() => {
@@ -29,8 +30,8 @@ function News(props) {
       })
         .then((res) => {
           setTimeBackground(false);
-          const dataApi = res.data.data.contentFilter;
-          const id = props.history.location.pathname.slice(6);
+          const dataApi = res?.data?.data?.contentFilter;
+          const id = props?.history?.location?.pathname?.slice(6);
           const dataChoose = dataApi.find((e) => e._id === id);
           testing({
             item: dataChoose,
@@ -43,9 +44,11 @@ function News(props) {
         showContentTab: state.id,
         dataFirst: state.dataFirst,
         item: state.item,
+        isActiveTab: state.isActiveTab,
       });
     }
-  }, []);
+  }, [props, state]);
+
 
   const testing = (obj) => {
     if (!obj) return;
@@ -60,7 +63,11 @@ function News(props) {
   }
 
   const goBackHome = () => {
-    history.push({ pathname: "/", id: objectState.showContentTab });
+    history.push({
+      pathname: "/",
+      id: objectState.showContentTab,
+      isActiveTab: objectState.isActiveTab,
+    });
   };
 
   const showUiRead = () => {
@@ -205,7 +212,7 @@ function News(props) {
                         : { fontSize: sizeContent, color: "black" }
                     }
                   >
-                    {parse(data[0].extra_info.content)}
+                    {parse(data[0]?.extra_info?.content)}
                   </div>
                 </div>
               </div>

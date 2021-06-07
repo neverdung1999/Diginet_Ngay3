@@ -10,10 +10,10 @@ function UiUser(props) {
   const [id, setId] = useState(null);
 
   useEffect(() => {
-    if (history.location.state !== undefined) {
-      setId(history.location.state.id);
+    if (history?.location?.state !== undefined) {
+      setId(history?.location?.state?.id);
     }
-  }, []);
+  }, [history?.location?.state]);
 
   const openFormLogin = () => {
     setOpenUiLogin(true);

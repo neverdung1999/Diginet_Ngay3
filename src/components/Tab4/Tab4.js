@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./tab4.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import Placeholder from "../loading/placeHoder/PlaceHorder";
 
 function Tab3(props) {
-  const { data, showUiSearch, showTabbar, showContentTab } = props;
+  const { data, showUiSearch, showTabbar, showContentTab, isActiveTab } = props;
+  const [timeLoading, setTimeLoading] = useState(true);
+  let titleCategories = null;
+
+   useEffect(() => {
+     setTimeout(() => {
+       setTimeLoading(false);
+     }, 2500);
+   });
+
+  data.forEach((value, index) => {
+    const tagCategories = value.source_id.source.categories[index].tag;
+    const tagContent = value.content_tags[0];
+    const titleCategory = value.source_id.source.categories[index].title;
+    if (tagCategories === tagContent) {
+      titleCategories = titleCategory;
+    }
+  });
 
   return (
     <div
@@ -15,6 +33,9 @@ function Tab3(props) {
           : { marginLeft: "0%", transition: ".5s" }
       }
     >
+      {timeLoading && (
+        <Placeholder data={data} showContentTab={showContentTab} />
+      )}
       <div
         className="header_bottom"
         style={
@@ -52,7 +73,11 @@ function Tab3(props) {
               key={index}
               to={{
                 pathname: `/news/${item._id}`,
-                state: { item: item, id: showContentTab },
+                state: {
+                  item: item,
+                  id: showContentTab,
+                  isActiveTab: isActiveTab,
+                },
               }}
               style={{ color: "black", textDecoration: "none" }}
             >
@@ -60,7 +85,7 @@ function Tab3(props) {
                 <div className="content_item-top">
                   <div className="item_top-top">
                     <div className="top_top-category">
-                      <p id="top_top-category">HOME</p>
+                      <p id="top_top-category">{titleCategories}</p>
                     </div>
                     <div className="top_top-time">
                       {moment(item.updatedAt).format("DD [Thg] MM YYYY, HH:mm")}

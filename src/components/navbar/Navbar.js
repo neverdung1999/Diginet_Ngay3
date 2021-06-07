@@ -8,8 +8,8 @@ function Index(props) {
     props.closeNavbar(false);
   };
 
-  const activeTabbar = (id, name) => {
-    props.setIdTabbar(id, name);
+  const activeTabbar = (id, name, index) => {
+    props.setIdTabbar(id, name, index);
   };
 
   return (
@@ -36,7 +36,7 @@ function Index(props) {
               <div
                 key={index}
                 className="content_bottom-item"
-                onClick={() => activeTabbar(item.id, item.name)}
+                onClick={() => activeTabbar(item.id, item.name, index)}
                 style={
                   item.id === showContentTab
                     ? { backgroundColor: "rgb(141, 200, 255)" }

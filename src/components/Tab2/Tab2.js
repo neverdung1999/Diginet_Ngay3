@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./tab2.css";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Placeholder from "../loading/placeHoder/PlaceHorder";
 
 function Tab2(props) {
-  const { showUiSearch, showTabbar, data, showContentTab } = props;
+  const { showUiSearch, showTabbar, data, showContentTab, isActiveTab } = props;
   const dataFirst = data[0];
-  
+  const [timeLoading, setTimeLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeLoading(false);
+    }, 2500);
+  });
+
   const setRmDataFirst = data.filter((item) => item._id !== dataFirst._id);
+
+  let titleCategories = null;
+
+  data.forEach((value, index) => {
+    const tagCategories = value.source_id.source.categories[index].tag;
+    const tagContent = value.content_tags[0];
+    const titleCategory = value.source_id.source.categories[index].title;
+    if (tagCategories === tagContent) {
+      titleCategories = titleCategory;
+    }
+  });
 
   return (
     <div
@@ -18,6 +37,9 @@ function Tab2(props) {
           : { marginLeft: "0%", transition: ".5s" }
       }
     >
+      {timeLoading && (
+        <Placeholder data={data} showContentTab={showContentTab} />
+      )}
       <div
         className="header_bottom"
         style={
@@ -51,20 +73,26 @@ function Tab2(props) {
         <Link
           to={{
             pathname: `/news/${dataFirst._id}`,
-            state: { dataFirst: dataFirst, id: showContentTab },
+            state: {
+              dataFirst: dataFirst,
+              id: showContentTab,
+              isActiveTab: isActiveTab,
+            },
           }}
           style={{ textDecoration: "none", color: "black" }}
         >
           <div className="tab2_main-img">
-            <img src={dataFirst?.extra_info?.image} id="tab2_main-img" alt="img"/>
+            <img
+              src={dataFirst?.extra_info?.image}
+              id="tab2_main-img"
+              alt="img"
+            />
             <div className="tab2_main-title">
               <div className="main_title-top">
-                
                 {dataFirst?.extra_info?.title}
-              
               </div>
               <div className="main_title-bottom">
-                <p id="main_title-bottom">HOME</p>
+                <p id="main_title-bottom">{titleCategories}</p>
                 <p id="main_title-bottom">
                   {moment(`${dataFirst.updatedAt}`).format("DD/MM/YYYY")}
                 </p>
@@ -100,7 +128,9 @@ function Tab2(props) {
                     />
                   </div>
                   <div className="item_properties-right">
-                    <div className="properties_right-top">HOME</div>
+                    <div className="properties_right-top">
+                      {titleCategories}
+                    </div>
                     <div className="properties_right-body">
                       {item?.extra_info?.title}
                     </div>
